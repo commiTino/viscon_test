@@ -1,0 +1,124 @@
+/* Basic reset and typography */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #f3f4f6; /* light gray */
+  color: #111827; /* gray-900 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App layout */
+.App {
+  padding: 24px;
+  text-align: center;
+}
+
+.App-header {
+  margin-bottom: 24px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.25;
+  color: #111827;
+}
+
+.App-content {
+  display: flex;
+  justify-content: center;
+}
+
+/* Gallery card */
+.gallery-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  padding: 16px;
+}
+
+/* Main image */
+.main-image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e5e7eb; /* gray-200 */
+  aspect-ratio: 5 / 3; /* responsive ratio similar to 1000x600 */
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Thumbnails */
+.thumbnails {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.thumbnail-button {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  aspect-ratio: 3 / 2;
+}
+
+.thumbnail-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+}
+
+.thumbnail-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.25); /* blue focus ring */
+  border-color: #2563eb;
+}
+
+.thumbnail-button.is-selected {
+  border-color: #2563eb;
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Small screens adjustments */
+@media (max-width: 640px) {
+  .App {
+    padding: 16px;
+  }
+
+  .thumbnails {
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
