@@ -42,6 +42,13 @@ Start simple, then get evil:
 - **Tune by asking.** "Make the platform move twice as fast."
 - Broke something? Ask Cline to undo it, or use Cline's checkpoint ("Restore") button.
 
+## Share your game
+
+At the end of the session, **[submit your game here](https://github.com/commiTino/viscon_test/issues/new?template=submit-game.yml)**.
+You need your game link: open the **Ports** tab, right-click port 3000 and choose **Copy Local Address**.
+
+Keep your Codespace open until the presentation is over, otherwise the link stops working.
+
 ## How it works
 
 The whole game is in [`game.js`](game.js): level data at the top, then physics, drawing and the main loop.

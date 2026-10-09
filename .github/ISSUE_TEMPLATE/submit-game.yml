@@ -1,0 +1,19 @@
+name: Submit my game
+description: Share your Stickman Run game so it can be shown at the end of the session.
+title: "Game by "
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Your name
+      placeholder: Alex
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Game link
+      description: In your Codespace, open the Ports tab, right-click port 3000 and choose "Copy Local Address".
+      placeholder: https://your-codespace-name-3000.app.github.dev
+    validations:
+      required: true
