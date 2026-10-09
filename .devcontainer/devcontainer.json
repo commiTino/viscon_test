@@ -14,7 +14,7 @@
   "containerEnv": {
     "CHOKIDAR_USEPOLLING": "true"
   },
-  "postCreateCommand": "npm ci || npm install",
+  "postCreateCommand": "bash .devcontainer/setup-cline.sh && (npm ci || npm install)",
   "customizations": {
     "vscode": {
       "extensions": [

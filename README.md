@@ -1,6 +1,6 @@
 # GitHub Codespaces
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/msblei/viscon_test?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/commiTino/viscon_test?quickstart=1)
 
 This repository is configured for GitHub Codespaces via a dev container. When you open a Codespace:
 
@@ -14,7 +14,7 @@ Quick start:
 1. Click the badge above to create a Codespace.
 2. Wait for the container to build and dependencies to install.
 3. Start the app with: npm start
-4. The forwarded port will open in the browser automatically. You can also access Cline from the Activity Bar and sign in if desired.
+4. The forwarded port will open in the browser automatically. You can also access Cline from the Activity Bar. No Cline account is needed: open Cline's settings (gear icon), pick an API provider and paste your own API key.
 
 # Getting Started with Create React App
 
