@@ -1,88 +1,63 @@
-# GitHub Codespaces
+# Stickman Run 🏃‍♂️🚪
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/commiTino/viscon_test?quickstart=1)
 
-This repository is configured for GitHub Codespaces via a dev container. When you open a Codespace:
+A tiny jump & run game. Right now it's boring: run right, touch the door, you win.
 
-- The environment uses Node 20 (image mcr.microsoft.com/devcontainers/javascript-node:20)
-- Dependencies are installed automatically using npm ci (falling back to npm install)
-- Port 3000 is forwarded and will auto-open when the dev server runs
-- The Cline extension is preinstalled (extension ID: saoudrizwan.claude-dev)
+**Your mission: make it as annoying as possible — only by asking the AI (Cline).**
 
-Quick start:
+## Getting started
 
-1. Click the badge above to create a Codespace.
-2. Wait for the container to build and dependencies to install.
-3. Start the app with: npm start
-4. The forwarded port will open in the browser automatically. You can also access Cline from the Activity Bar. No Cline account is needed: open Cline's settings (gear icon), pick an API provider and paste your own API key.
+1. Click the badge above and wait for the Codespace to load (a few minutes the first time).
+2. The game starts automatically and opens in a new browser tab. If it doesn't, open the
+   **Ports** tab at the bottom and click the 🌐 globe next to port 3000.
+3. Open **Cline** (robot icon in the left sidebar). Click the ⚙️ gear, choose an API provider
+   and paste the API key you were given.
+4. Ask Cline for a feature and wait for it to finish. The game tab reloads by itself
+   (refresh it if it doesn't). Play, then ask for the next feature.
 
-# Getting Started with Create React App
+Controls: **← →** / **A D** to run · **↑** / **W** / **Space** to jump · **R** to restart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Ideas
 
-## Available Scripts
+Start simple, then get evil:
 
-In the project directory, you can run:
+- A hole in the ground you have to jump over
+- Spikes that kill you
+- A platform that moves up and down
+- Spikes that pop out of the ground when you get close
+- A fake door that kills you — the real one is somewhere else
+- The door runs away when you get near it
+- Controls flip every 10 seconds
+- A floor that crumbles after you step on it
+- Invisible blocks that you only find by bumping into them
+- Level 2!
 
-### `npm start`
+## Prompting tips
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **One feature per prompt.** Short prompts finish fast.
+  ✅ "Add a hole in the middle of the ground."
+  ❌ "Add holes, spikes, enemies, a level editor and a boss fight."
+- **Say what's wrong.** "The spikes are too small to see" works better than "fix it".
+- **Tune by asking.** "Make the platform move twice as fast."
+- Broke something? Ask Cline to undo it, or use Cline's checkpoint ("Restore") button.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How it works
 
-### `npm test`
+The whole game is in [`game.js`](game.js): level data at the top, then physics, drawing and the main loop.
+The canvas is 960 × 540 pixels, and y grows **downwards**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+<details>
+<summary>Notes for organisers</summary>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The dev container (`.devcontainer/`) uses Node 22, installs dependencies with `npm ci`,
+  installs Cline and pre-seeds its state so it skips the "create an account" onboarding.
+- `.vscode/tasks.json` starts the game (`npm start`, Vite on port 3000) when the Codespace opens.
+- `.clinerules` tells Cline how the game is structured and to keep changes small and fast
+  (no new packages, no running commands, no browser testing).
+- To test locally: open the folder in VS Code with the Dev Containers extension and run
+  **Dev Containers: Reopen in Container**. Or just run `npm install && npm start`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</details>

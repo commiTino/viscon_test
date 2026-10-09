@@ -1,27 +1,32 @@
 {
-  "name": "viscon_test Codespace",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "name": "Stickman Run",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "remoteUser": "node",
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
-      "label": "React dev server",
+      "label": "Game",
       "onAutoForward": "openBrowser",
       "visibility": "public"
     }
   },
-  "postAttachCommand": "gh codespace ports visibility 3000:public -c $CODESPACE_NAME",
+  "postAttachCommand": "[ -z \"$CODESPACE_NAME\" ] || gh codespace ports visibility 3000:public -c $CODESPACE_NAME",
   "containerEnv": {
     "CHOKIDAR_USEPOLLING": "true"
   },
-  "postCreateCommand": "bash .devcontainer/setup-cline.sh && (npm ci || npm install)",
+  "updateContentCommand": "npm ci || npm install",
+  "onCreateCommand": "bash .devcontainer/setup-cline.sh",
   "customizations": {
+    "codespaces": {
+      "openFiles": ["game.js"]
+    },
     "vscode": {
       "extensions": [
         "saoudrizwan.claude-dev"
       ],
       "settings": {
-        "files.autoSave": "onFocusChange"
+        "files.autoSave": "afterDelay",
+        "task.allowAutomaticTasks": "on"
       }
     }
   },

@@ -1,0 +1,24 @@
+# Project: Stickman Run
+
+A tiny browser jump & run game. Students ask for "annoying" features (spikes, holes,
+moving platforms, fake doors, ...) and want to see the result quickly.
+
+## Files
+- `game.js` — the whole game (level data, physics, drawing, main loop). Almost every change goes here.
+- `index.html`, `style.css` — page shell. Rarely needs changes.
+
+## How game.js is organised
+- `level` holds the level data. Everything is a rectangle `{ x, y, w, h }`, y grows downwards.
+  Canvas is 960 × 540, ground top is at `GROUND_Y` (460).
+- Holes: split `level.platforms` into separate platforms with a gap.
+- New obstacle types: add an array to `level` (e.g. `spikes: [...]`), check it in `update()`
+  (use `overlaps(player, thing)` and call `die()`), and draw it in `draw()` with a small `drawXxx()` function.
+- Moving things: give them speed fields and update their position in `update(dt)` (always multiply by `dt`).
+
+## Rules for changes (speed matters!)
+- Keep everything in `game.js`. Plain JavaScript + canvas only. Do NOT add libraries or npm packages.
+- Make the smallest change that does what was asked. Don't refactor or rewrite unrelated code.
+- Draw graphics with simple canvas shapes; no image files.
+- The dev server is already running with auto-reload. Do NOT run npm commands, start servers,
+  or open the browser to test — the student will check the game themselves.
+- After editing, reply with one or two sentences describing what changed and how to try it.
