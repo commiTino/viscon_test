@@ -25,8 +25,7 @@
         "saoudrizwan.claude-dev"
       ],
       "settings": {
-        "files.autoSave": "afterDelay",
-        "task.allowAutomaticTasks": "on"
+        "files.autoSave": "afterDelay"
       }
     }
   },
