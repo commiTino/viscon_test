@@ -1,6 +1,6 @@
 name: Submit my game
 description: Share your Stickman Run game so it can be shown at the end of the session.
-title: "Game by "
+title: "Stickman Game"
 body:
   - type: input
     id: name
